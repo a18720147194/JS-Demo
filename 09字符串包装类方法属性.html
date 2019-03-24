@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//字符串在底部是以字符数组的形式保存的
+			var str = "Hello World";
+//			console.log(str[0]);    
+//			console.log(str.charAt(0));
+//			console.log(str.charCodeAt(0));  //返回字符的unicode编码
+//			console.log(String.fromCharCode(77)); //返回编码对应的字符
+//			console.log(str.concat("嘻嘻")); //连接字符串返回新字符串
+//			console.log(str.indexOf("l",2)); //从索引2开始查找 lastIndexOf从后往前找
+			console.log(str.slice(1,2));//返回截取到的新字符串 包头不包尾 负数将会从后面计算
+			console.log(str.substr(1,2));//开始索引和数量
+			console.log(str.split("o"));//将字符串按o拆分成一个数组
+			console.log(str.toUpperCase());//返回大写   toLowerCase（）返回小写
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

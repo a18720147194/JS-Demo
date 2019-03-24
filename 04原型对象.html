@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function Gouzao(name,age){
+				this.name=name ;
+				this.age=age;
+
+			}
+			Gouzao.prototype.sayName=function(){
+				alert("Hello"+this.name);
+			};
+			var fun = new Gouzao("xiaoming",13);
+			fun.sayName();
+		</script> 
+	</head>
+	<body>
+	</body>
+</html>

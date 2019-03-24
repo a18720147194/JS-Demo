@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			 *为元素绑定响应函数 
+			 * addEventListener();
+			 * 		参数 ：
+			 * 			1.事件的字符串，不要on
+			 * 			2.回调函数 ，当事件触发时 函数被调用 
+			 * 			3.是否在捕获阶段触发事件，一般传false	
+			 * 先绑定先反应，可绑定多个，比 function更多变、ie8及以下不支持（可用attachEvent()）
+			 * attachEvent()；
+			 * 参数 ：
+			 * 			1.事件的字符串，要on
+			 * 			2.回调函数 ，当事件触发时 函数被调用 
+			 * 		先绑定后反应	
+			 */
+			function bind (obj eventStr callback){
+				if(obj.addEventListener){
+					obj.addEventListener(eventStr callback false) ;
+				}else{
+					obj.attachEvent()("on"+eventStr function(){
+						callback.call(obj);
+					});
+				}
+				
+			}	 
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

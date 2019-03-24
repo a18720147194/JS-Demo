@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*dom ： documen  object  model
+			*document.getElementById("id属性");获取一个元素节点对象
+			* document.getElementsByTagName("标签名");获取一组元素节点对象
+			* document.getElementsByName("name属性");获取一组元素节点对象
+			* 
+			* 元素节点对象.getElementsByTagName("标签名");返回当前节点的指定标签名后代节点
+			* 元素节点对象.childNodes;属性 表示当前节点的所有子节点 空白文本也算在内（ie8不算）
+			* 元素节点对象.children; 属性 当前元素所有子元素
+			* 元素节点对象.firstChild;属性 表示第一个子节点
+			* 元素节点对象.lastChild;属性  表示最后一个子节点
+			* 
+			* 元素节点对象.parentNode;属性 表示当前节点的父节点
+			* 元素节点对象.previousSibling; 属性 比碍事当前节点的前一个兄弟节点
+			* 元素节点对象.nextSibling ;属性 表示当前节点的下一个兄弟节点
+			* 
+			* document.body; BODY元素对象
+			* document.documentElement; html元素对象
+			* document.all;  页面中所有元素
+			* document.querySelector("css选择器"); 只返回第一个
+			* document.querySelectorAll("css选择器"); 返回类数组对象
+			* */
+			window.onload = function(){
+				var but = document.getElementById("but");
+				but.innerHTML = "额似一个撒嗖";
+				but.onclick = function(){
+					alert("雷猴");
+				};
+			};
+			
+		</script>
+	</head>
+	<body>
+		<button id="but">我是一个按钮</button>
+		
+	</body>
+</html>

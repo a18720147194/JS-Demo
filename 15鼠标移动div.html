@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style type="text/css">
+			body{
+				height: 1000px;
+			}
+			#box1{
+				width: 100px;
+				height: 100px;
+				background-color: red; 
+				position: absolute;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var box1 = document.getElementById("box1");
+				
+				document.onmousemove = function(event){
+					event = event || window.event ;
+					var sl = document.documentElement.scrollLeft ||document.body.scrollLeft;
+					var st = document.documentElement.scrollTop||document.body.scrollTop;
+					//clientX获取的是窗口坐标
+					//pageX获取的是页面的坐标
+					var x = event.clientX +sl;
+					var y = event.clientY +st;
+					box1.style.left = x+"px";
+					box1.style.top = y+"px";
+				};
+				
+			};
+		</script>
+	</head>
+	<body>
+		<div id="box1">
+			
+		</div>
+	</body>
+</html>

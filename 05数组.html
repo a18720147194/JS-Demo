@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var arr = [2,3,4,5,6,11];
+			var value ;
+			//console.log(arr);
+			
+			//在数组方最后添加一个或多个元素 并返回长度
+//			value = arr.push(7);
+//			console.log(arr);
+//			console.log(value);
+			  
+			//删除最后一个  并返回删除的元素    shift（）删除第一个
+//			value = arr.pop();
+//			console.log(arr);
+//			console.log(value);
+			
+			//在数组方最前添加一个或多个元素 并返回长度
+//			value = arr.unshift(1);
+//			console.log(arr);
+//			console.log(value);
+			
+			//arr.foreach
+//			arr.forEach(function (a,b,c){
+//				console.log(a); 
+//				//b是index  c是遍历数组
+//			});
+			//arr.slice 用来从数组提取指定索引元素 slice（start，end）end可省略  返回新数组 
+			//含start 不含end  ，-1表示倒数第一个
+			
+			//arr.splice  删除数组中的元素 splice（start ，num,newValue） 
+			//开始索引 和 删除数量  原位置添加的新元素   返回删除的值
+			
+			//concat（newarr1，newarr2） 与另一个或多个数组合并  返回新数组
+			
+			//arr.join("链接符号") 可以将数组转换成字符串
+			
+			//arr.reverse();反转数组
+			
+			//arr.sort()  排序  默认unicode编码表  11会排在2前面（比较第一个字符）
+		
+			arr.sort(function(a,b){
+				return a-b ;  //返回正数调位置   
+			});
+			console.log(arr);
+		</script> 
+	</head>
+	<body>
+	</body>
+</html>

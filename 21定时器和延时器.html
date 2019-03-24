@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function(){
+				var h = document.getElementsByTagName("h1")[0];
+				var num = 0 ;
+				//setTimeout(function(){},1000);clearTimeout();关闭
+				var times = setInterval(function(){
+					h.innerHTML = num++;
+					if(num == 101){
+						clearInterval(times);
+					}
+				},1000);
+			};
+		</script>
+	</head>
+	<body>
+		<h1></h1>
+	</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				//元素.style.属性 = "属性值" ;修改的是内联样式
+				//元素.currentStyle.样式 ;只读；当前显示的样式，没设置时及时默认值  只有ie支持
+				//getComputedStyle(元素,null).属性 ; 只读;
+				//元素.clientWidth    元素.clientHeight  只读 ，包括内容和内边距且不带px
+				//元素.offsetWidth    元素.offsetHeight  同上 还包括边框
+				
+				//元素.offsetParent ;  获取最近的开启了定位的祖先元素
+				//元素.offsetLeft ;  获取定位父元素的水平距离 
+				//元素.offsetTop ;  ``````````````
+				
+				/*元素.scrollWidth ; 滚动区域宽度 
+				*元素.scrollHeight ; 滚动区域高度 
+				*元素.scrollTop ; 垂直滚动条滚动的距离
+				*元素.scrollLeft ; 水平滚动条滚动的距离*/
+				
+				//scrollWidth - scrollLeft == clientWidth 时 ，水平滚动条到底 
+				
+				//onscroll事件   当元素的滚动条滚动时触发 	
+				var box1= document.getElementById("box1")
+				var btn1 = document.getElementById("btn1");
+				var btn2 = document.getElementById("btn2");
+				btn1.onclick = function(){
+					box1.style.width = "250px";
+					box1.style.height = "250px";
+				};
+				btn2.onclick = function(){
+					box1.style.backgroundColor = "yellow";
+				}; 
+			};
+		</script>
+	</head>
+	<body>
+		<div id="box1">
+		</div>
+		<button id="btn1">变大</button>
+		<button id="btn2">变色</button>
+	</body>
+</html>
