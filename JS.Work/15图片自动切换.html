@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function(){
+				var btn = document.getElementById("btn1");
+				var btn = document.getElementById("btn2");
+				var arr = ["img/01.jpg","img/02.jpg","img/03.jpg"];
+				var num = 0 ;
+				var img = document.getElementsByTagName("img")[0];
+				var times ;
+				btn1.onclick = function(){
+					clearInterval(times);
+					times = setInterval(function(){
+						img.src = arr[num++];
+						num = num %arr.length;
+						
+					},1000);
+				};
+				btn2.onclick = function(){
+					clearInterval(times);
+				};
+
+			};
+		</script>
+	</head>
+	<body>
+		<img src="img/01.jpg"/>
+		<button id="btn1">转起来</button>
+		<button id="btn2">停下来</button>
+	</body>
+</html>

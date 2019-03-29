@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#bo{
+				height: 700px;
+				width: 100px;
+				margin: 0 auto ;
+			}
+			.yi{
+				width: 100px;
+				overflow: hidden;
+			}
+			#box1{
+				background-color: red;
+			}
+			#box2{
+				background-color: yellow;
+			}
+			#box3{
+				background-color: greenyellow;
+			}
+			a{
+				text-decoration: none;
+				line-height: 25px;
+			}
+			span{
+				width: 100%;
+				display: inline-block;
+				background-color: pink;
+			}
+			.play{
+				height:25px ;
+			}
+		</style>
+		<script type="text/javascript" src="js/work.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				var box1 = document.getElementById("box1");
+				var head1 = document.getElementById("head1");
+				var box1AllA = document.querySelectorAll("#box1 a");
+   				head1.onclick = function(){
+   					fun(box1,box1AllA);
+   				};
+   				 
+   				var box2 = document.getElementById("box2");
+				var head2 = document.getElementById("head2");
+				var box2AllA = document.querySelectorAll("#box2 a");
+				head2.onclick = function(){
+					fun(box2,box2AllA);
+				};
+				
+				var box3 = document.getElementById("box3");
+				var head3 = document.getElementById("head3");
+				var box3AllA = document.querySelectorAll("#box3 a");
+				head3.onclick = function(){
+					
+					fun(box3,box3AllA);
+				};
+				
+				
+				function fun (obj,obja){
+ 					
+   					if(hasClass(obj,"play")){
+   						play(obj,"height",8,obja.length*25,function(){
+   							toggleClass(obj,"play");
+   						});
+   					}else{
+   						play(obj,"height",8,25,function(){
+   							toggleClass(obj,"play");
+   						});
+   					}
+				}
+			};
+		</script> 
+	</head>
+	<body>
+		<div id="bo">
+			<div id="box1" class="yi play">
+				<span id="head1"><a href="#">111111</a></span><br />
+				<a href="#">1-1</a><br />
+				<a href="#">1-2</a><br />
+				<a href="#">1-3</a>
+			</div>
+			<div id="box2" class="yi play">
+				<span id="head2"><a href="#">222222</a></span><br />
+				<a href="#">2-1</a><br />
+				<a href="#">2-2</a><br />
+				<a href="#">2-3</a>
+			</div>
+			<div id="box3" class="yi play">
+				<span id="head3"><a href="#">333333</a></span><br />
+				<a href="#">3-1</a><br />
+				<a href="#">3-2</a><br />
+				<a href="#">3-3</a>
+			</div>
+		</div>
+	</body>
+</html>

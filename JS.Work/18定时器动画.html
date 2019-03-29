@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				left: 0;
+			}
+			#box2{
+				width: 100px;
+				height: 100px;
+				background-color: yellow;
+				position: absolute;
+				left: 0;
+				top:200px
+			}
+		</style>
+		<script type="text/javascript" src="js/work.js">
+			
+		</script>
+		<script type="text/javascript">
+			window.onload = function(){
+				var box1 = document.getElementById("box1");
+				var box2 = document.getElementById("box2");
+				var btn1 = document.getElementById("btn1");
+				var btn2 = document.getElementById("btn2");
+				var btn3 = document.getElementById("btn3");
+
+				
+				btn2.onclick = function(){
+					play(box1,"left",10,0);
+				};
+				btn1.onclick = function(){
+					play(box1,"left",10,800);
+				};
+				btn3.onclick = function(){
+					play(box2,"left", 10,800,function(){
+						play(box2,"top",10,800);
+					}); 
+				};
+			};
+			
+		</script>
+	</head>
+	<body>
+		<button id="btn1">点我向右移动box1</button>
+		<button id="btn2">点我向左移动box1</button>
+		<button id="btn3">测试</button>
+		<br /><br />
+		<div id="box1"></div>
+		<div id="box2"></div>
+	</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function Person(name,age){
+				this.name = name ;
+				this.age = age ;
+			}
+			var per1 = new Person("小一",1);
+			var per2 = new Person("小二",2);
+			var per3 = new Person("小三",3);
+			var per4 = new Person("小四",4);
+			var per5 = new Person("小五",5);
+			
+			var arr = [per1 ,per2,per3,per4,per5];
+			
+			function text (arr){
+				var newArr = new Array();
+				for(var i =0 ;i<arr.length ; i++){
+					if(arr[i].age>=3){
+						newArr.push(arr[i]);
+					}
+					
+				}
+				return newArr ;
+			}
+			arr = text(arr);
+			for(var i = 0 ; i<arr.length ;i++){
+				console.log(arr[i].name);
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

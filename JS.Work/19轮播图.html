@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#outer{
+				width: 820px;
+				height: 800px;
+				background-color: greenyellow;
+				margin: 0 auto;
+				padding: 10px 0;
+				position: relative;
+				overflow: hidden;
+			}
+			#list{
+				list-style: none;
+				position: absolute;
+				left: 0;
+			}
+			#list li{
+				float: left;
+				margin: 0 10px 0 10px;
+				
+			}
+			#btn{
+				position: absolute;
+				bottom: 30px;
+			}
+			#btn a{
+				float: left;
+				width: 25px;
+				height: 25px;
+				background-color: yellow;
+				margin: 0 10px;
+				opacity: 0.5;
+				filter: alpha(opacity=50);//兼容ie8
+			}
+			#btn a:hover{
+				background-color: black;
+			}
+		</style>
+		<script type="text/javascript" src="js/work.js">
+			
+		</script>
+		<script type="text/javascript">
+			window.onload = function(){
+				var outer= document.getElementById("outer");
+				var list = document.getElementById("list");
+				var btn = document.getElementById("btn");
+				var arrimg = document.getElementsByTagName("img");
+				var alla = document.getElementsByTagName("a");
+				var index = 0 ;
+				var aut ;
+				
+				list.style.width = 820*arrimg.length + "px";
+				btn.style.left = (outer.offsetWidth - btn.offsetWidth)/2 +"px";
+				
+				alla[0].style.backgroundColor = "black";
+				for(var i =0;i<alla.length;i++){
+					
+					alla[i].num = i;
+					alla[i].onclick = function(){
+						clearInterval(aut);
+						index =this.num;
+						cl(this.num);
+//						list.style.left = -(outer.offsetWidth*index)+"px";
+						play(list,"left",20,-820*index,function(){
+							setTimeout(function(){
+								autoc();
+							},5000);
+						});
+						
+					};
+				}
+				function cl(num){
+					
+					for(var i = 0 ; i<alla.length;i++){
+						if(i==num){
+							alla[i].style.backgroundColor = "black";
+						}else{
+							alla[i].style.backgroundColor = "";
+						}
+					}
+				}
+				function autoc(){
+					clearInterval(aut);
+					aut = setInterval(function(){
+						index++;
+						
+						if(index >= arrimg.length){
+							
+							index = 0 ;
+							
+							list.style.left=0;
+						}
+						play(list,"left",20,-820*index,function(){
+							cl(index);
+							if(index>=alla.length){
+								cl(0);
+							}
+						});
+					},3000);
+				}
+				autoc();
+//				var times = setInterval(function(){
+//					var a =Math.floor((-parseInt(list.style.left)/outer.offsetWidth))
+//					cl(a);
+//				},30);
+				
+			};	
+			
+			
+		</script>
+	</head>
+	<body>
+		<div id="outer">
+			<ul id="list" style="left: 0;">
+				<li><img src="img/01.jpg"/></li>
+				<li><img src="img/02.jpg"/></li>
+				<li><img src="img/03.jpg"/></li>
+				<li><img src="img/01.jpg"/></li>
+			</ul>
+			<div id="btn">
+				<a href="javaScript:;"></a>
+				<a href="javaScript:;"></a>
+				<a href="javaScript:;"></a>
+			</div>
+		</div>
+	</body>
+</html>

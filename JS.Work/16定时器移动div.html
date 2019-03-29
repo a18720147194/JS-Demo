@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				left: 0;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var box = document.getElementById("box");
+				var btn1 = document.getElementById("btn1");
+				var btn2 = document.getElementById("btn2");
+				var vs = 10 ;
+				var times ; 
+				btn1.onclick = function(){
+					clearInterval(times);
+					times = setInterval(function(){
+						oldValue = parseInt(getStyle(box,"left"));
+						newValue = oldValue + vs ;
+						newValue = newValue>800?800:newValue;
+						if(newValue==800){
+							clearInterval(times);
+						}
+ 						box.style.left = newValue + "px";
+					},30);
+					
+				};
+//				btn2.onclick = function(){
+//					clearInterval(times);
+//					times = setInterval(function(){
+//						oldValue = parseInt(getStyle(box,"left"));
+//						newValue = oldValue - vs ;
+//						newValue = newValue<0?0:newValue;
+//						if(newValue==0){
+//							clearInterval(times);
+//						}
+// 						box.style.left = newValue + "px";
+//					},30);
+//					
+//				};
+				function play (obj,fx,sd,value){
+					clearInterval(times);
+					times = setInterval(function(){
+						oldValue = parseInt(getStyle(obj,fx));
+						newValue = oldValue + sd ;
+						if(sd>0){
+							if(newValue>=value){
+								newValue = value ;
+								clearInterval(times);
+							}
+						}else{
+							if(newValue<=value){
+								newValue = value ;
+								clearInterval(times);
+							}
+						}   
+						
+ 						box.style.left = newValue + "px";
+					},30);
+				}
+				btn2.onclick = function(){
+					play(box,"left",-10,0);
+				};
+			};
+			function getStyle(obj ,name){
+				if(window.getComputedStyle){
+					return getComputedStyle(obj,null)[name];
+				}else{
+					return obj.currentStyle[name];
+				}
+			};
+		</script>
+	</head>
+	<body>
+		<button id="btn1">点我向右移动box</button>
+		<button id="btn2">点我向左移动box</button>
+		<br /><br />
+		<div id="box">
+			
+			
+		</div>
+	</body>
+</html>

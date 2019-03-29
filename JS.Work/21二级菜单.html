@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#bo{
+				height: 700px;
+				width: 100px;
+				margin: 0 auto ;
+			}
+			.yi{
+				width: 100px;
+				overflow: hidden;
+			}
+			#box1{
+				background-color: red;
+			}
+			#box2{
+				background-color: yellow;
+			}
+			#box3{
+				background-color: greenyellow;
+			}
+			a{
+				text-decoration: none;
+				line-height: 25px;
+			}
+			span{
+				width: 100%;
+				display: inline-block;
+				background-color: pink;
+			}
+			.play1{
+				height:25px ;
+			}
+		</style>
+		<script type="text/javascript" src="js/work.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){ 
+				var box1 = document.getElementById("box1");
+				var headarr = document.querySelectorAll(".head");
+				var box1AllA = document.querySelectorAll("#box1 a");
+// 				head1.onclick = function(){
+// 					fun(box1,box1AllA);
+// 				}; 
+   				for(var i = 0 ; i<headarr.length;i++){
+   					headarr[i].index = i ;
+   					headarr[i].onclick = function(){
+   						
+   						for(var j = 0 ; j<headarr.length;j++){
+   							this.num = j ;
+   							if(this.num!=this.index){
+   								play(headarr[this.num].parentNode,"height",8,25);
+   								addClass(headarr[this.num].parentNode,"play1");
+   							} 
+   						}
+   						if(hasClass(this.parentNode,"play1")){
+   							var han = this.parentNode;
+   							play(this.parentNode,"height",8,100,function(){
+   								toggleClass(han,"play1");
+   							});
+	   						
+	   					}else{
+	   						play(this.parentNode,"height",8,25);
+	   						toggleClass(this.parentNode,"play1");
+	   					}
+   					}; 
+   				}
+			
+				function fun (obj){
+   					
+   					if(hasClass(obj,"play")){
+   						play(obj,"height",8,100,function(){
+   							toggleClass(obj,"play");
+   						});
+   					}else{
+   						
+   						play(obj,"height",8,25,function(){
+   							toggleClass(obj,"play");
+   						});
+   					}
+				}
+			};
+		</script> 
+	</head>
+	<body>
+		<div id="bo">
+			<div id="box1" class="yi play1">
+				<span class="head"><a href="#">111111</a></span><br />
+				<a href="#">1-1</a><br />
+				<a href="#">1-2</a><br />
+				<a href="#">1-3</a>
+			</div>
+			<div id="box2" class="yi play1">
+				<span class="head"><a href="#">222222</a></span><br />
+				<a href="#">2-1</a><br />
+				<a href="#">2-2</a><br />
+				<a href="#">2-3</a>
+			</div>
+			<div id="box3" class="yi play1">
+				<span class="head"><a href="#">333333</a></span><br />
+				<a href="#">3-1</a><br />
+				<a href="#">3-2</a><br />
+				<a href="#">3-3</a>
+			</div>
+		</div>
+	</body>
+</html>

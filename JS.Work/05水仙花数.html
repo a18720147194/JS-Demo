@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var ge = 0 , shi = 0 , bai = 0 ;
+			var num = 0 ;
+			for(var a = 100 ; a<1000 ; a++){
+				ge = a%10;
+				shi = (a%100-a%10)/10;
+				bai = (a-shi*10-ge)/100;
+				if(ge*ge*ge+shi*shi*shi+bai*bai*bai == a){
+					console.log(a);
+				}
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

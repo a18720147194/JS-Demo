@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var value = false ;
+			var str = "请输入邮箱"
+			while(!value){
+				var em = prompt(str);
+				var reg = /^[\w]+(\.[\w]+)*@[A-z0-9]+(\.[A-z]{2,5}){1,2}$/;
+				value = reg.test(em);
+				str = "邮箱地址错误，请输入正确邮箱地址";
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
