@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+
+
+			#out{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+			}
+			#in{
+				width: 100px;
+				height: 100px;
+				background-color: yellow;
+			}
+		</style>
+		<script src="js/jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//给out绑定单击监听(两种)
+				$("#out").click(function(){alert(1)});
+				$("#out").on("click",function(){alert(2)});
+				
+				//给in绑定鼠标移入和移出的事件监听(三种)
+//				$("#in").mouseenter(function(){alert("a")})
+//				.mouseleave(function(){alert("a--")});
+//				$("#in").on("mouseenter",function(){alert("b")})
+//				.on("mouseleave",function(){alert("b--")});
+//				$("#in").hover(function(){alert("c")},function(){alert("c--")});
+				
+				//点击btn1，解除in上所有监听
+				$("#btn1").click(function(){$("#in").off()});
+				
+				//点击2，解除in上的mouseenter事件
+				$("#btn2").click(function(){$("#in").off("mouseenter")});
+				
+				//点击3，得到事件坐标
+				//event.clientX视口左上角，pageX页面，offsetX事件元素
+				$("#btn3").click(function(event){console.log(event.pageX,event.clientX,event.offsetX)});
+				
+				//阻止in的单击事件冒泡
+				$("#in").click(function(event){alert("in");event.stopPropagation()});
+				
+				//点击链接，当时间为偶数是不跳转
+				$("a").click(function(event){
+					if(Date.now()%2===0){
+						event.preventDefault(); //停止事件 的默认行为
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="out">
+			<div id="in">
+				
+			</div>
+		</div>
+		<button id="btn1">bt1</button>
+		<button id="btn2">bt2</button>
+		<button id="btn3">bt3</button>
+		<a href="http://www.baidu.com" >aaaaa</a>
+	</body>
+</html>

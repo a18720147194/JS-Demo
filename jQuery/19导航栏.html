@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			#tbody{
+				width: 600px;
+				height: 40px;
+				margin: 20px auto;
+				background-color: dodgerblue;
+				line-height: 30px;
+			}
+			ul{
+				list-style: none;
+			}
+			#tbody>ul>li{
+				width: 70px;
+				float: left;
+				background-color: #eee;
+				color: dodgerblue;
+				margin:5px 0 ;
+				margin-left: 20px;
+				text-align: center;
+			}
+			.am{
+				display: none;
+			}
+			.am>li{
+				border-bottom: 1px darkgray solid;
+			}
+			a{
+				text-decoration: none; 
+				display: block;
+				/*background-color: dodgerblue;*/
+			}
+		</style>
+		<script src="js/jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#tul>li").hover(function(){
+					$(this).children("a").css("background-color","dodgerblue").css("color","#fff")
+					$(this).children(".am").stop().css("display","block").slideUp(0).slideDown(600);
+				},function(){
+					$(this).children("a").css("background-color"," #eee").css("color","dodgerblue")
+					$(this).children(".am").stop().slideUp(600);
+				});
+//				$(".am").css("display","block");
+//				$(".am").slideUp(0);
+//				$(".am").slideDown(800);
+
+			});
+		</script>
+	</head>
+	<body>
+		<div id="tbody">
+			<ul id="tul">
+				<li><a href="#">首页</a>
+					<ul class="am" >
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+					</ul>
+				</li>
+				<li><a href="#">衬衫</a>
+					<ul class="am" >
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+					</ul>				
+				</li>
+				<li><a href="#">卫衣</a>
+					<ul class="am" >
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+					</ul>
+				</li>
+				<li><a href="#">裤子</a>
+					<ul class="am" >
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+					</ul>
+				</li>
+				<li><a href="#">联系我们</a>
+					<ul class="am" >
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+					</ul>
+				</li>
+			</ul>			
+		</div>
+	</body>
+</html>

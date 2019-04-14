@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				float: left;
+			}
+			#box1{
+				background-image: url(img/1.jpg);
+				width: 540px;
+				height: 330px;
+				position: relative;
+			}
+			#box2{
+				width: 100px;
+				height: 100px;
+				overflow: hidden;
+				display: none;
+				position: relative;
+				background-color: red;
+			}
+			#nei{
+				width: 100px;
+				height: 100px;
+				opacity: 0.5;
+				background-color: yellow;
+				position: relative;
+				display: none;
+			}
+			#big{
+				position: relative;
+				right: 20px;
+			}
+		</style>
+		<script src="js/jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var $b1 = $("#box1");
+				var $b2 = $("#box2");
+				var $n = $("#nei");
+				var $img = $("#big")
+				var OFFSET_X = $b1.offset().left;
+				var OFFSET_Y = $b1.offset().top;
+				$b1.hover(function(event){
+					$n.css("display","block");
+					var mouseX = event.offsetX-50;
+					var mouseY = event.offsetY-50;
+					
+					$n.css("left",mouseX);
+					$n.css("top",mouseY);
+					
+					$b2.css("display","block");
+					
+				},function(){
+					$n.css("display","none");
+					$b2.css("display","none");
+				});
+				
+				$b1.mousemove(function(event){
+					var mouseX = event.clientX-50-OFFSET_X;
+					var mouseY = event.clientY-50-OFFSET_Y;
+					if(mouseY<0){
+						mouseY = 0;
+					}else if(mouseY>230){
+						mouseY = 230;
+					}
+					if(mouseX<0){
+						mouseX = 0;  
+					}else if(mouseX>440){
+						mouseX = 440;
+					}
+					$n.css("left",mouseX);
+					$n.css("top",mouseY);
+					$img.css("left",-mouseX);
+					$img.css("top",-mouseY);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="box1">
+			<div id="nei">
+			</div>
+		</div>
+		<div id="box2">
+			<div id="big"><img src="img/1.jpg"/></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			作为一般函数调用：$();
+		1.参数为函数：当dom加载完成后执行此回调函数
+		2.参数为选择器字符串：查找所有匹配的标签，并将它们封装成jQuery对象
+		3.参数为Dom对象：将Dom封装成jQuery对象
+		4.参数为html标签字符串：创建标签对象并封装为jQuery对象
+		-->
+		<script src="js/jquery-3.3.1.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				//1.添加文本框
+				$("#btn").click(function(){
+					alert(this.innerHTML);
+					$('<input type="text" name="msg3" />').appendTo("div");  
+				});
+				
+				//2.遍历数组
+				var arr = [6,4,9];
+				$.each(arr,function(i, n){
+					console.log(i+" "+n);
+				});
+				
+				//3.去除两端空格
+				var str = "   j jj   ";
+				console.log(str.trim());
+				console.log($.trim(str));
+			});
+		</script>
+	</head>
+	<body>
+		<div >
+			<button id="btn">Test</button>
+			<input type="text" name="msg1" />
+			<input type="text" name="msg2" />
+		</div>
+	</body>
+</html>

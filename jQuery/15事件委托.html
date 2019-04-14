@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#btn").click(function(){
+					$("ul").append("<li>新添加的li</li>");
+				});
+//				$("ul>li").click(function(){
+//					this.style.backgroundColor = "red";
+//				});
+				//委托给父元素
+				$("ul").delegate("li","click",function(){
+					this.style.backgroundColor = "red";
+				});
+				$("#btn2").click(function(){
+					$("ul").undelegate("click")//也可不传参数，全部移除
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>1111</li>
+			<li>1111</li>
+			<li>1111</li>
+		</ul>
+		<li>2222</li>
+		<button id="btn">添加li</button>
+		<button id="btn2">移除事件委托</button>
+	</body>
+</html>

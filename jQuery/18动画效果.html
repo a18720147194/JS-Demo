@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				position: absolute;
+				width: 150px;
+				height: 150px;
+				background-color: red;
+			}
+		</style>
+		<!--
+			淡入淡出，改变其opacity，参数可传num（毫秒），字符串只能传固定的
+			$div.fadeOut(1000);
+			$div.fadeIn(1000);
+			$div.fadeToggle(1000);切换 
+			
+			收缩展开，改变高度，
+			$div.slideUp(1000);
+			$div.slideDown(1000);
+			$div.slideToggle(1000);
+			
+			显示隐藏
+			$div.show(1000);
+			$div.hide(1000);
+			$div.toggle(1000);
+			
+			自定义
+			$div.animate({
+				width :250 //到指定宽度
+				left: 50  //到指定位置
+				left: "+=50" //移动多少
+			},1000);
+			
+			$div.stop();停止当前在等待执行的动画
+		-->
+		<script src="js/jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var $div = $("div");
+				var $b1 = $("#btn1");
+				var $b2 = $("#btn2");
+				var $b3 = $("#btn3");
+				
+				$b1.click(function(){
+					$div.animate({
+						width :250
+					},2000)
+					.animate({
+						height :250
+					},2000)
+				});
+				$b2.click(function(){
+					$div.animate({
+						left:200
+					},1000)
+					.animate({
+						top:200
+					},1000)
+				});
+				$b3.click(function(){
+					$div.stop();
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<button id="btn1"> Test 1</button>
+		<button id="btn2"> Test 2</button>
+		<button id="btn3"> Test 3</button>
+		<div ></div>
+	</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="js/jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+		$(function(){
+			var $name = $("input").filter("[name=aihao]");
+			//给form添加监听，判断sb
+			$("form").click(function(){
+				$("#sb").prop("checked",true);
+				$name.each(function(){
+					if(!this.checked){
+						$("#sb").prop("checked",false);
+					}
+				});
+			});
+			
+			//给提交按钮设置单击响应
+			$("#ti").click(function(){
+				for(var i = 0 ; i<$name.length ; i++){
+					if($name.eq(i).prop("checked")){
+						alert($name.eq(i).attr("value"));  
+					} 
+				}
+			}); 
+			
+			//给全选设置单击响应
+			$("#all").click(function(){
+				$name.prop("checked",true);
+			});
+			
+			//给全不选设置 
+			$("#nall").click(function(){
+				$name.prop("checked",false);
+			}); 
+			
+			//给反选设置
+			$("#fan").click(function(){
+				$name.each(function(){
+					this.checked = !this.checked;
+				});
+			});
+			
+			//给sb设置
+			
+			$("#sb").click(function(){
+				$name.prop("checked",$("#sb").prop("checked"));
+			});
+			
+		});
+	</script>
+	<body>
+		<form action="" method="post">
+			你的爱好运动是？<input type="checkbox" id="sb"/>全选/全不选<br />
+			<input type="checkbox" name="aihao" value="足球" />足球
+			<input type="checkbox" name="aihao" value="篮球" />篮球
+			<input type="checkbox" name="aihao" value="羽毛球" />羽毛球
+			<input type="checkbox" name="aihao" value="乒乓球" />乒乓球<br />
+			<input type="button" id="all" value="全选" />
+			<input type="button" id="nall" value="全不选" />
+			<input type="button" id="fan"  value="反选"/>
+			<input type="button"  id="ti"  value="提交"/>
+		</form>
+	</body>
+</html>

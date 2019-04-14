@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//往id为ul1的元素添加span标签（最后）
+				$("#ul1").append("<span>append</span>");
+				$("<span>appendTo</span>").appendTo($("#ul1"));
+				
+				//往id为ul1的元素添加span标签（最前）
+				$("#ul1").prepend("<span>prepend</span>");
+				$("<span>prependTo</span>").prependTo($("#ul1"));
+				
+				//往title为hello的元素前添加标签
+				$("#ul1").children("li[title=hello]").before("<span>before</span>");
+				
+				//往title为hello的元素后面添加标签
+				$("#ul1").children("li[title=hello]").after("<span>after</span>");
+				
+				//往title为hello的元素全部替换
+				$("#ul1").children("li[title=hello]").replaceWith("<p>replaceWith</p>");
+				
+				//移除id为ul2的所有内容；
+				$("#ul2").empty();
+				$("#ul2>li").remove();
+			});
+		</script>
+	</head>
+	<body>
+		<ul id="ul1">
+			<li>111</li>
+			<li>222</li>
+			<li title="hello">333</li>
+			<li>444</li>
+		</ul>
+		<ul id="ul2">
+			<li>aaa</li>
+			<li>bbb</li>
+			<li>ccc</li>
+		</ul>
+	</body>
+</html>

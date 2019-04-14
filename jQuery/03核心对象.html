@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//输出包含的button标签的个数
+				console.log($("button").length);//console.log($("button").size());
+
+				//取出第二个button的文本
+				console.log($("button")[1].innerHTML);//console.log($("button").get(1).innerHTML);
+				
+				//输出所有button标签的文本
+				$("button").each(function(i,e){
+					console.log(e.innerHTML);
+				});
+				/*
+				 * $("button").each(function(){
+					console.log(this.innerHTML);
+				});
+				*/
+				
+				//输出三按钮是第几个
+				console.log($("#btn").index());
+			});
+		</script>
+	</head>
+	<body>
+		<button>Test1</button>
+		<button>Test2</button>
+		<button id="btn">Test3</button>
+		<button>Test4</button>
+	</body>
+</html>

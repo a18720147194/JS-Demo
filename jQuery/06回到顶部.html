@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 40px;
+				height: 50px;
+				font:   bold 16px "微软雅黑";
+				background-color: yellowgreen;
+				align-content: center;
+				position: fixed;
+				left: 1460px;
+				top: 700px;
+				cursor: pointer;
+			}
+			body{
+				height: 1000px;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-3.3.1.js">
+			
+		</script>
+		<script type="text/javascript">
+			$(function(){
+				$("#box").click(function(){
+					//$("html,body").scrollTop(0);//瞬间
+					//平滑
+					var nowValue = $("html").scrollTop()+$("body").scrollTop();
+					var sd = 10 ; 
+					var time = setInterval(function(){
+						nowValue -= sd;
+						if(nowValue <= 0){
+							clearInterval(time);  
+						}   
+						$("html,body").scrollTop(nowValue);
+						
+					},30)
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			回到顶部
+		</div>
+	</body>
+</html>

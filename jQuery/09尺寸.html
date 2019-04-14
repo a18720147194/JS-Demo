@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: yellowgreen;
+				border: 10px red solid;
+				padding: 10px;
+				margin: 10px;
+			}
+		</style>
+		<script src="js/jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				console.log($("div").width()+","+$("div").height());//内容尺寸
+				console.log($("div").innerWidth()+","+$("div").innerHeight());//+padding
+				console.log($("div").outerWidth()+","+$("div").outerHeight());//+padding+border
+				console.log($("div").outerWidth(true)+","+$("div").outerHeight(true));//+padding+border+marg
+			});
+		</script>
+	</head>
+	<body>
+		<div id="">
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			ul{
+				list-style: none;
+			}
+			li{
+				float : left;
+				width: 120px;
+				height: 50px;
+				background-color: yellowgreen;
+				line-height: 50px;
+				text-align: center;
+			}
+			#box1{
+					width: 360px;
+					height: 300px;
+					background-color: red;
+					
+			}
+			#box2{
+					width: 360px;
+					height: 300px;
+					background-color: yellow;
+			}
+			#box3{
+					width: 360px;
+					height: 300px;
+					background-color: blueviolet;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-3.3.1.js"> 
+			
+		</script>
+		<script type="text/javascript">
+			/*
+			$(function(){
+				$("li").each(function(i,v){
+					this.num = i ;
+					this.onclick = function(){
+						fun(this.num);
+					};
+				});
+			});
+			function fun (num){
+				for(var i = 0 ; i <=$("div").length;i++){
+					if(i==num){
+						$("div")[i].style.display = "";
+					}else{
+						$("div")[i].style.display = "none";
+					}
+				}
+			}
+			*/
+			
+			$(function(){
+				var value = 0 ;
+				var $div = $('div');
+				$("li").click(function(){
+					$div[value].style.display = "none";
+					var index = $(this).index();
+					$div[index].style.display = "";
+					value = index;
+				});
+			});
+		</script>
+	</head>
+	<body>
+			<ul>
+				<li style="background-color: red;">20元套餐</li>
+				<li style="background-color: yellow;">30元套餐</li>
+				<li style="background-color: blueviolet">50元套餐</li>
+			</ul>
+			<div id="box1"  style="display: ;"></div>
+			<div id="box2" style="display: none;"></div>
+			<div id="box3" style="display: none;"></div>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box1{
+				width: 150px;
+				height: 200px;
+				overflow: auto;
+				background-color: greenyellow;
+			}
+			body{
+				height: 1000px;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-3.3.1.js">
+			
+		</script>
+		<script type="text/javascript">
+			$(function(){
+				//获取滚动条垂直位置
+				$("#btn").click(function(){
+//					alert($("#box1").scrollTop());
+//					alert($("body").scrollTop()+$("html").scrollTop());//兼容ie
+					//设置位置
+					$("#box1").scrollTop(100);
+					$("body,html").scrollTop(100);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="box1">
+			dddd<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />dd
+			<br /><br /><br /><br /><br /><br /><br /><br />baa
+		</div>
+		<button id="btn">Test</button>
+		
+	</body>
+	
+</html>

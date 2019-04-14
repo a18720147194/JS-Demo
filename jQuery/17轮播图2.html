@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#tbody{
+				width: 560px;
+				height: 330px;
+				background-color: aquamarine;
+				margin: 50px auto;
+				padding: 10px 0 ;
+				/*overflow: hidden;*/ 
+				position: relative;
+			}
+			ul{
+				width: 3920px;
+				list-style: none;
+				position: absolute;
+				left: -560px;
+			}
+			li{
+				float: left;
+				margin: 0 10px;
+			}
+			#box{
+				width: 560px;
+				margin: 0 auto;
+			}
+			#box1{
+				width: 280px;
+				margin: 0 auto;
+				float: left;
+				text-align: center;
+			}
+			#box2{
+				width: 280px;
+				margin: 0 auto;
+				float: right;
+				text-align: center;
+			}
+			#anniu{
+				position: relative;
+				width: 200px;
+				left: 230px;
+				top: 300px;
+			}
+			a{
+				display: block;
+				width: 10px;
+				height: 10px;
+				background-color: black;
+				float: left;
+				margin: 5px;
+				opacity: 0.5;
+				filter: alpha(opacity=50);//兼容ie8
+			}
+			.on{
+				background-color: red;
+			}
+		</style>
+		<script src="js/jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var $img = $("img");
+				var $ul = $("ul");
+				var $div = $("#tbody");
+				var time ;
+				var index = 1 ;
+				$("#btn1").click(function(){
+					clearInterval(ao);
+					strat(false);
+				});
+				$("#btn2").click(function(){
+					clearInterval(ao);
+					strat(true);
+				});
+				function strat (next){
+					clearInterval(time);
+					if(next){
+						if(index>=$img.length-1){
+							index=$img.length-2;
+						}
+						index++;
+						var left = $ul.position().left;
+						var stop = index*-560;
+						time = setInterval(function(){
+							left -= 20 ;
+							if(left<=stop){
+								left=stop;
+								clearInterval(time);
+								if(index>=$img.length-1){
+									index=1;
+									left = index*-560;
+								}
+								cl();
+							}
+							$ul.css("left",left);
+						},30);
+					}else{
+						if(index<=0){
+							index = 1;
+						}
+						index--;
+						var left = $ul.position().left;
+						var stop = index*-560;
+						time = setInterval(function(){
+							left += 20 ;
+							if(left>=stop){
+								left=stop;
+								clearInterval(time);
+								if(index<=0){
+									index=$img.length-2;
+									left = index*-560;
+								}
+								cl();
+							}
+							$ul.css("left",left);
+						},30);
+					}
+				}
+				
+				var ao = setInterval(function(){
+					strat(true);
+				},2000); 
+				$div.hover(function(){
+					clearInterval(ao);
+				},function(){
+					ao = setInterval(function(){
+						strat(true);
+					},2000);
+				});
+				
+				function cl(){
+					$("#anniu>a").attr("class","");
+					$($("#anniu>a")[index-1]).attr("class","on");
+				}
+				
+				$("#anniu>a").click(function(){
+					if(index-1<=$(this).index()){
+						index = $(this).index();
+						strat(true);
+					}else{
+						index = $(this).index()+2;
+						strat(false);
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="tbody">
+			<ul>
+				<li><img src="img/5.jpg"/></li>
+				<li><img src="img/1.jpg"/></li>
+				<li><img src="img/2.jpg"/></li>
+				<li><img src="img/3.jpg"/></li>
+				<li><img src="img/4.jpg"/></li>
+				<li><img src="img/5.jpg"/></li>
+				<li><img src="img/1.jpg"/></li>
+			</ul>
+			<div id="anniu">
+				<a href="#" class="on"></a>
+				<a href="#"></a>
+				<a href="#"></a>
+				<a href="#"></a>
+				<a href="#"></a>
+			</div>
+		</div>
+		<div id="box">
+			<div id="box1">
+				<button id="btn1">上一张</button>
+			</div>
+			<div id="box2">
+				<button id="btn2">下一张</button>
+			</div>
+		</div>
+	</body>
+</html>
